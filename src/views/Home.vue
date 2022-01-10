@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <LampModule />
+    <div class="grid grid-cols-3">
+      <LampModule name="Table Lamp" dbKey="lampColor" />
+      <DoorModule name="Appartment Door" dbKey="openDoor" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import LampModule from "@/components/LampModule.vue";
+import LampModule from "@/components/smart_modules/LampModule.vue";
+import DoorModule from "@/components/smart_modules/DoorModule.vue";
 import { useStore } from "../store";
 
 export default defineComponent({
   name: "Home",
   components: {
     LampModule,
+    DoorModule,
   },
   beforeMount() {
     const store = useStore();

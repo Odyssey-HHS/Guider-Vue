@@ -8,28 +8,30 @@ const store = reactive({
   motionAlert: false,
   door: false,
   lampColor: 0,
+  forceNightTime: false,
 });
 
 // Add Event listener
 store.websocket.addEventListener("message", (message) => {
   const object = JSON.parse(message.data);
   console.log(object);
-  if (object && typeof object.role === "string") {
-    store.authenticated = true;
-    store.role = object.role;
-    getRouter().push("/");
-  }
-  if (object && typeof object.motionAlert === "boolean")
+  if (object && typeof object.motionAlert === "boolean") {
     store.motionAlert = object.motionAlert;
+  }
 
   if (object && typeof object.door === "boolean") store.door = object.door;
 
-  if (object && typeof object.lampColor === "number")
+  if (object && typeof object.lampColor === "number") {
     store.lampColor = object.lampColor;
+  }
 });
 
 setInterval(() => {
   console.log("Hard sync fetch");
+
+  if (!store.authenticated) {
+    return;
+  }
 
   store.websocket.send("{}");
 }, 1000);

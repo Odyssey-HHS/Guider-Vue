@@ -4,7 +4,8 @@
       <LampModule name="Table Lamp" dbKey="lampColor" />
       <DoorModule name="Appartment Door" dbKey="openDoor" />
       <NightTimeModule name="Night Time" dbKey="fnt" />
-      <AlertModule name="Motion Alert" dbKey="motionAlert" />
+      <MotionAlert name="Motion Alert" dbKey="motionAlert" />
+      <FireAlert name="Fire Alert" dbKey="fireAlert" />
     </div>
   </div>
 </template>
@@ -13,7 +14,8 @@
 import { defineComponent } from "vue";
 import LampModule from "@/components/smart_modules/LampModule.vue";
 import DoorModule from "@/components/smart_modules/DoorModule.vue";
-import AlertModule from "@/components/smart_modules/AlertModule.vue";
+import MotionAlert from "@/components/smart_modules/MotionAlert.vue";
+import FireAlert from "@/components/smart_modules/FireAlert.vue";
 import NightTimeModule from "@/components/smart_modules/NightTimeModule.vue";
 
 
@@ -24,8 +26,9 @@ export default defineComponent({
   components: {
     LampModule,
     DoorModule,
-    AlertModule,
-    NightTimeModule
+    MotionAlert,
+    NightTimeModule,
+    FireAlert
   },
   beforeMount() {
     const store = useStore();

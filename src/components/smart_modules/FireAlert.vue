@@ -37,7 +37,7 @@ export default defineComponent({
   computed: {
     alertValue() {
       const store = useStore();
-      return store.motionAlert;
+      return store.fireAlert;
     },
   },
 });

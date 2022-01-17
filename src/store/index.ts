@@ -6,6 +6,7 @@ const store = reactive({
   authenticated: false,
   role: "",
   motionAlert: false,
+  fireAlert: false,
   door: false,
   lampColor: 0,
   forceNightTime: false,
@@ -24,6 +25,10 @@ store.websocket.addEventListener("message", (message) => {
 
   if (object && typeof object.motionAlert === "boolean") {
     store.motionAlert = object.motionAlert;
+  }
+
+  if (object && typeof object.fireAlert === "boolean") {
+    store.fireAlert = object.fireAlert;
   }
 
   if (object && typeof object.door === "boolean") store.door = object.door;

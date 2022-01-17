@@ -9,22 +9,20 @@
           <input
             type="text"
             v-model="username"
-            placeholder="naam"
-            class="mx-2 mt-2"
-            @keydown.enter="login"
+            placeholder="Name"
+            class="m-1 p-1 rounded-sm shadow"
           />
           <input
             type="password"
             v-model="password"
-            placeholder="wachtwoord"
-            class="mx-2 my-2"
-            @keydown.enter="login"
+            placeholder="Password"
+            class="m-1 p-1 rounded-sm shadow"
           />
           <button
-            class="border-black bg-green-400 py-2 px-4 rounded shadow-sm"
+            class="border-black bg-green-400 py-2 px-4 mt-4 rounded-sm shadow"
             @click="login"
           >
-            Let me in! :)
+            Login
           </button>
         </div>
       </div>

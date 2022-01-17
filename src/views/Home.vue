@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <div class="grid grid-cols-1 md:grid-cols-3">
-      <LampModule name="Table Lamp" dbKey="lampColor" />
+      <LampModule name="Table Lamp" dbKey="lampColor" v-if="!isGuard" />
       <DoorModule name="Appartment Door" dbKey="openDoor" />
-      <NightTimeModule name="Night Time" dbKey="fnt" />
-      <MotionAlert name="Motion Alert" dbKey="motionAlert" />
-      <FireAlert name="Fire Alert" dbKey="fireAlert" />
+      <NightTimeModule name="Night Time" dbKey="fnt" v-if="isGuard" />
+      <MotionAlert name="Motion Alert" dbKey="motionAlert" v-if="isGuard" />
+      <FireAlert name="Fire Alert" dbKey="fireAlert" v-if="isGuard" />
     </div>
   </div>
 </template>
@@ -35,5 +35,11 @@ export default defineComponent({
       this.$router.push("/login");
     }
   },
+  computed: {
+    isGuard() {
+      const store = useStore();
+      return store.role === "guard";
+    }
+  }
 });
 </script>

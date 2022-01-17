@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-3">
       <LampModule name="Table Lamp" dbKey="lampColor" />
       <DoorModule name="Appartment Door" dbKey="openDoor" />
       <NightTimeModule name="Night Time" dbKey="fnt" />
@@ -17,7 +17,6 @@ import DoorModule from "@/components/smart_modules/DoorModule.vue";
 import MotionAlert from "@/components/smart_modules/MotionAlert.vue";
 import FireAlert from "@/components/smart_modules/FireAlert.vue";
 import NightTimeModule from "@/components/smart_modules/NightTimeModule.vue";
-
 
 import { useStore } from "../store";
 

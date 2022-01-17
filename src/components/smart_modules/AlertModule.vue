@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center p-2" v-if="alertValue">
-    <div class="shadow-lg container">
+    <div class="shadow-lg container bg-gray-200">
       <div class="bg-red-500 p-2">
         <h1 class="text-gray-800 text-xl">{{ name }}</h1>
       </div>

@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-center p-2">
-    <div class="shadow-lg container">
+    <div class="shadow-lg container bg-gray-200">
       <div class="bg-green-500 p-2">
         <h1 class="text-gray-800 text-xl">{{ name }}</h1>
       </div>
-      <div class="py-2 bg-gray-200 grid grid-cols-6">
+      <div class="py-2 grid grid-cols-6">
         <button @click="updateLamp(0)">Off</button>
         <button @click="updateLamp(16768170)">Warm White</button>
         <button @click="updateLamp(16777215)">Cold White</button>

@@ -4,13 +4,27 @@
       <div class="bg-red-500 p-2">
         <h1 class="text-gray-800 text-xl">Login</h1>
       </div>
-      <div class="py-2 bg-gray-200">
-        <button
-          class="border-black bg-green-400 py-2 px-4 rounded shadow-sm"
-          @click="login"
-        >
-          Let me in! :)
-        </button>
+      <div class="flex py-2 bg-gray-200 justify-center">
+        <div class="columns-1 w-min">
+          <input
+            type="text"
+            v-model="username"
+            placeholder="Name"
+            class="m-1 p-1 rounded-sm shadow"
+          />
+          <input
+            type="password"
+            v-model="password"
+            placeholder="Password"
+            class="m-1 p-1 rounded-sm shadow"
+          />
+          <button
+            class="border-black bg-green-400 py-2 px-4 mt-4 rounded-sm shadow"
+            @click="login"
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -26,14 +40,20 @@ export default defineComponent({
   data() {
     return {
       lampValue: 0,
+      username: "",
+      password: "",
     };
   },
   methods: {
     login() {
       const store = useStore();
-      store.websocket.send(JSON.stringify({ token: "hardcoded-valid" }));
-      store.authenticated = true;
-      this.$router.push("/");
+      store.websocket.send(
+        JSON.stringify({
+          token: "hardcoded-valid",
+          username: this.username,
+          password: this.password,
+        })
+      );
     },
   },
 });

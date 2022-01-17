@@ -1,8 +1,10 @@
+import { getRouter } from "@/router";
 import { reactive } from "vue";
 
 const store = reactive({
   websocket: new WebSocket("ws://localhost:8443/ws"),
   authenticated: false,
+  role: "",
   motionAlert: false,
   door: false,
   lampColor: 0,

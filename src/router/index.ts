@@ -19,3 +19,8 @@ const router = createRouter({
 });
 
 export default router;
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export function getRouter() {
+  return router;
+}

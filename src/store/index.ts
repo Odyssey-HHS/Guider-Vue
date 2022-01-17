@@ -15,6 +15,13 @@ const store = reactive({
 store.websocket.addEventListener("message", (message) => {
   const object = JSON.parse(message.data);
   console.log(object);
+
+  if (object && typeof object.role === "string") {
+    store.authenticated = true;
+    store.role = object.role;
+    getRouter().push("/");
+  }
+
   if (object && typeof object.motionAlert === "boolean") {
     store.motionAlert = object.motionAlert;
   }

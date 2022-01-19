@@ -5,7 +5,7 @@
         <h1 class="text-gray-800 text-xl">Login</h1>
       </div>
       <div class="flex py-2 bg-gray-200 justify-center">
-        <div class="columns-1 w-min">
+        <div class="columns-1 w-min" @keydown.enter="login">
           <input
             type="text"
             v-model="username"

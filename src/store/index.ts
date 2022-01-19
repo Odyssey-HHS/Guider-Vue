@@ -2,7 +2,9 @@ import { getRouter } from "@/router";
 import { reactive } from "vue";
 
 const store = reactive({
-  websocket: new WebSocket("ws://localhost:8443/ws"),
+  websocket: new WebSocket(
+    process.env.VUE_APP_WEBSOCKET ?? "ws://localhost:8443/ws"
+  ),
   authenticated: false,
   role: "",
   motionAlert: false,
@@ -39,11 +41,11 @@ store.websocket.addEventListener("message", (message) => {
 });
 
 setInterval(() => {
-  console.log("Hard sync fetch");
-
   if (!store.authenticated) {
     return;
   }
+
+  console.log("Hard sync fetch");
 
   store.websocket.send("{}");
 }, 1000);

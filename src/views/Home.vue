@@ -6,6 +6,7 @@
       <NightTimeModule name="Night Time" dbKey="fnt" v-if="isGuard" />
       <MotionAlert name="Motion Alert" dbKey="motionAlert" v-if="isGuard" />
       <FireAlert name="Fire Alert" dbKey="fireAlert" v-if="isGuard" />
+      <PanicAlert name="Panic Alert" dbKey="panicAlert" v-if="isGuard" />
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@ import LampModule from "@/components/smart_modules/LampModule.vue";
 import DoorModule from "@/components/smart_modules/DoorModule.vue";
 import MotionAlert from "@/components/smart_modules/MotionAlert.vue";
 import FireAlert from "@/components/smart_modules/FireAlert.vue";
+import PanicAlert from "@/components/smart_modules/PanicAlert.vue";
 import NightTimeModule from "@/components/smart_modules/NightTimeModule.vue";
 
 import { useStore } from "../store";
@@ -28,6 +30,7 @@ export default defineComponent({
     MotionAlert,
     NightTimeModule,
     FireAlert,
+    PanicAlert,
   },
   beforeMount() {
     const store = useStore();
